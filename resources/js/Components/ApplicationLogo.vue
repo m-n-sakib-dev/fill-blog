@@ -1,0 +1,16 @@
+<template>
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <rect width="48" height="48" rx="12" fill="#0891b2" />
+        <text
+            x="50%"
+            y="54%"
+            dominant-baseline="middle"
+            text-anchor="middle"
+            font-family="Georgia, serif"
+            font-size="20"
+            font-weight="700"
+            letter-spacing="-1"
+            fill="white"
+        >FB</text>
+    </svg>
+</template>
