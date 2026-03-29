@@ -1,15 +1,5 @@
 <script setup>
-/*
- * articles: Laravel Paginator object
- *   - articles.data    → current page-এর items array
- *   - articles.links   → pagination links array (prev, page numbers, next)
- *   - articles.total   → মোট article সংখ্যা
- *   - articles.last_page → মোট page সংখ্যা
- *
- * প্রতিটা article-এ আছে:
- *   - article.user      → eager loaded author (with(['user']))
- *   - article.category  → eager loaded category (with(['category']))
- */
+
 import { Head, Link } from '@inertiajs/vue3';
 import Navbar from '@/Components/Navbar.vue';
 
@@ -53,10 +43,7 @@ function excerpt(html, length = 100) {
             </div>
 
             <div v-else class="grid gap-6 sm:grid-cols-2">
-                <!--
-                    article.user.sub_domain দিয়ে author-এর blog route বানাই
-                    article.user eager loaded তাই extra query নেই
-                -->
+
                 <Link
                     v-for="article in articles.data"
                     :key="article.id"
