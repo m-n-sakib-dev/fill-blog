@@ -1,9 +1,4 @@
 <script setup>
-/*
- * defineProps: Laravel (Inertia) থেকে পাঠানো data এখানে receive হয়
- * PublicController::authors() থেকে 'authors' array আসছে
- * প্রতিটা author object-এ articles_count আছে (withCount এর কারণে)
- */
 import { Head, Link } from '@inertiajs/vue3';
 import Navbar from '@/Components/Navbar.vue';
 
