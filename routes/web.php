@@ -16,9 +16,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -32,4 +30,4 @@ Route::get('/articles', [PublicController::class, 'articles'])->name('articles')
 Route::get('/{sub_domain}', [UserBlogController::class, 'show'])->name('user.blog');
 Route::get('/{sub_domain}/{id}', [UserBlogController::class, 'article'])->name('user.article');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
