@@ -1,11 +1,18 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import { usePage } from '@inertiajs/vue3';
 import Navbar from '@/Components/Navbar.vue';
+import HomeFeed from '@/Components/HomeFeed.vue';
+import AppFooter from '@/Components/AppFooter.vue';
 
 defineProps({
     canLogin: Boolean,
     canRegister: Boolean,
+    feed:       { type: Array, default: () => [] },
+    categories: { type: Array, default: () => [] },
 });
+
+const authUser = usePage().props.auth?.user ?? null;
 </script>
 
 <template>
@@ -16,6 +23,11 @@ defineProps({
 
         <Navbar />
 
+        <!-- Logged-in: show personalized feed -->
+        <HomeFeed v-if="authUser" :feed="feed" :categories="categories" />
+
+        <!-- Logged-out: show landing page -->
+        <template v-else>
         <section class="relative overflow-hidden">
             <div class="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2">
                 <div class="h-[600px] w-[600px] rounded-full bg-cyan-100/60 blur-3xl dark:bg-cyan-900/20" />
@@ -151,14 +163,9 @@ defineProps({
             </a>
         </section>
 
-        <footer class="border-t border-gray-100 dark:border-gray-800">
-            <div class="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
-                <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
-                    <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Fill Blog</span>
-                    <p class="text-xs text-gray-400 dark:text-gray-600">© {{ new Date().getFullYear() }} M.N.Sakib. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
+        </template>
+
+        <AppFooter />
 
     </div>
 </template>

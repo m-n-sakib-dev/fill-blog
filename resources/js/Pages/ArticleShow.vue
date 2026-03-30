@@ -1,6 +1,7 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
 import Navbar from '@/Components/Navbar.vue';
+import AppFooter from '@/Components/AppFooter.vue';
 
 defineProps({
     author: {
@@ -73,5 +74,6 @@ defineProps({
             />
 
         </main>
+        <AppFooter />
     </div>
 </template>

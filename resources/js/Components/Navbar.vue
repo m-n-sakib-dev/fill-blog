@@ -54,6 +54,16 @@ onUnmounted(() => document.removeEventListener('keydown', closeOnEscape));
                     ]">
                     Authors
                 </Link>
+                <Link
+                    :href="route('about')"
+                    :class="[
+                        'rounded-lg px-3 py-1.5 text-sm font-medium transition',
+                        currentUrl.startsWith('/about')
+                            ? 'bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
+                            : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white',
+                    ]">
+                    About
+                </Link>
             </div>
 
             <div class="relative">

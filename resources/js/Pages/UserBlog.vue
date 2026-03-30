@@ -2,6 +2,7 @@
 import { Head, Link } from '@inertiajs/vue3';
 import BlogCard from '@/Components/BlogCard.vue';
 import Navbar from '@/Components/Navbar.vue';
+import AppFooter from '@/Components/AppFooter.vue';
 
 defineProps({
     author: {
@@ -77,5 +78,6 @@ defineProps({
                 />
             </div>
         </main>
+        <AppFooter />
     </div>
 </template>

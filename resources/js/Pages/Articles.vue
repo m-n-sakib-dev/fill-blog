@@ -2,6 +2,7 @@
 
 import { Head, Link } from '@inertiajs/vue3';
 import Navbar from '@/Components/Navbar.vue';
+import AppFooter from '@/Components/AppFooter.vue';
 
 defineProps({
     articles: {
@@ -26,7 +27,7 @@ function excerpt(html, length = 100) {
 
     <Head title="Articles" />
 
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
+    <div class="flex min-h-screen flex-col bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
         <Navbar />
 
         <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
@@ -100,5 +101,6 @@ function excerpt(html, length = 100) {
             </div>
 
         </div>
+        <AppFooter />
     </div>
 </template>
