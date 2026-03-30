@@ -19,11 +19,11 @@ class RolePermissionSeeder extends Seeder
         ];
 
         foreach ($permissions as $permission) {
-            Permission::create(['name' => $permission]);
+            Permission::firstOrCreate(['name' => $permission]);
         }
 
-        $adminRole = Role::create(['name' => 'admin']);
-        $editorRole = Role::create(['name' => 'editor']);
+        $adminRole = Role::firstOrCreate(['name' => 'admin']);
+        $editorRole = Role::firstOrCreate(['name' => 'editor']);
 
         $adminRole->givePermissionTo(Permission::all());
 
@@ -33,7 +33,9 @@ class RolePermissionSeeder extends Seeder
             'edit articles',
         ]);
 
-        $admin = User::find(1);
-        $admin->assignRole('admin');
+        $admin = User::first();
+        if ($admin) {
+            $admin->assignRole('admin');
+        }
     }
 }
