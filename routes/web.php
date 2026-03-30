@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/authors', [PublicController::class, 'authors'])->name('authors');
 Route::get('/articles', [PublicController::class, 'articles'])->name('articles');
 
+require __DIR__ . '/auth.php';
+
 Route::get('/{sub_domain}', [UserBlogController::class, 'show'])->name('user.blog');
 Route::get('/{sub_domain}/{id}', [UserBlogController::class, 'article'])->name('user.article');
-
-require __DIR__ . '/auth.php';

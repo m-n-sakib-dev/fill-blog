@@ -31,6 +31,8 @@ class AppPanelProvider extends PanelProvider
             ->favicon(asset('favicon.svg'))
             ->homeUrl('/')
             ->login()
+            ->registration()
+            ->passwordReset()
             ->colors([
                 'primary' => Color::Cyan,
             ])

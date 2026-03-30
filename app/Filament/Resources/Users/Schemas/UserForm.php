@@ -22,6 +22,7 @@ class UserForm
                 TextInput::make('username')
                     ->required()
                     ->unique(ignoreRecord: true)
+                    ->minLength(5)
                     ->maxLength(255)
                     ->live(debounce: 500)
                     ->afterStateUpdated(function ($state, callable $set) {
@@ -30,9 +31,10 @@ class UserForm
 
                 TextInput::make('sub_domain')
                     ->disabled()
+                    ->dehydrated(true)
                     ->unique(ignoreRecord: true)
                     ->maxLength(255)
-                    ->prefix('https://filament-blog.test/'),
+                    ->prefix(rtrim(config('app.url'), '/') . '/'),
 
                 TextInput::make('email')
                     ->email()

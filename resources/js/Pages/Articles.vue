@@ -45,7 +45,7 @@ function excerpt(html, length = 100) {
             <div v-else class="grid gap-6 sm:grid-cols-2">
 
                 <Link
-                    v-for="article in articles.data"
+                    v-for="article in articles.data.filter(a => a.user?.sub_domain)"
                     :key="article.id"
                     :href="route('user.article', { sub_domain: article.user.sub_domain, id: article.id })"
                     class="flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700">

@@ -32,7 +32,7 @@ defineProps({
 
             <div v-else class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 <Link
-                    v-for="author in authors"
+                    v-for="author in authors.filter(a => a.sub_domain)"
                     :key="author.id"
                     :href="route('user.blog', { sub_domain: author.sub_domain })"
                     class="flex items-center gap-4 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700">
